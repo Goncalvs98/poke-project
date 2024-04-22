@@ -20,3 +20,8 @@ form {
     display: flex;
     justify-content: space-around;
 }
+
+p img{
+    width: 7rem;
+    gap: 2rem;
+}
