@@ -6,6 +6,24 @@ function toPascalCase(str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
 
+function toLowCase(str) {
+    return str.replace(/\b\w+\b/g, function(word) {
+        // Verifica se a palavra contém "'" seguido de caractere
+        if (word.includes("'") && word.indexOf("'") < word.length - 1) {
+            return word.toLowerCase();
+        } else {
+            return word.charAt(0).toLowerCase() + word.substr(1).toLowerCase();
+        }
+    }).replace(/\. /g, "-").replace(/'\s/g, "").replace(/'/g, '');
+}
+
+// Exemplo de uso:
+console.log(toLowCase("Esta é uma Frase. Com 'Acentos' e. Pontuações.'")); // Output: "esta-e-uma-frase-com-acents-e-pontuacoes"
+console.log(toLowCase("Farfetch'd")); // Output: "farfetch'd"
+console.log(toLowCase("Farfetch'd GIF")); // Output: "farfetch'd-gif"
+
+
+
 function card(tarefa){
     const content = `
     <div class="framed">
@@ -13,8 +31,8 @@ function card(tarefa){
             ${toPascalCase(tarefa.titulo)}
         </p>
         <p>
-            <a href="https://pokemondb.net/pokedex/${tarefa.titulo.toLowerCase()}" target="_blank">
-                <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/${tarefa.titulo.toLowerCase()}.gif" alt="${toPascalCase(tarefa.titulo)}">
+            <a href="https://pokemondb.net/pokedex/${toLowCase(tarefa.titulo)}" target="_blank">
+                <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/${toLowCase(tarefa.titulo)}.gif" alt="${toPascalCase(tarefa.titulo)}">
             </a>
             <div class="framed">
                 ${tarefa.descricao}
