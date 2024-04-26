@@ -2,15 +2,19 @@ const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
 tarefas.forEach(tarefa => card(tarefa));
 
+function toPascalCase(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 function card(tarefa){
     const content = `
     <div class="framed">
         <p class="title">
-            ${tarefa.titulo}
+            ${toPascalCase(tarefa.titulo)}
         </p>
         <p>
-            <a href="https://pokemondb.net/pokedex/${tarefa.titulo}" target="_blank">
-                <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/${tarefa.titulo}.gif" alt="Bulbasaur">
+            <a href="https://pokemondb.net/pokedex/${tarefa.titulo.toLowerCase()}" target="_blank">
+                <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/${tarefa.titulo.toLowerCase()}.gif" alt="${toPascalCase(tarefa.titulo)}">
             </a>
             <div class="framed">
                 ${tarefa.descricao}
