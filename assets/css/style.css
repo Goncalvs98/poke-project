@@ -25,3 +25,25 @@ p img{
     width: 7rem;
     gap: 2rem;
 }
+
+progress{
+    height: 0.8rem !important;
+}
+
+button{
+    border: none !important;
+    border-image: none !important;
+}
+
+.framed{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 30rem;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-around;
+}

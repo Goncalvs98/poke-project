@@ -34,16 +34,18 @@ function card(tarefa){
             <a href="https://pokemondb.net/pokedex/${toLowCase(tarefa.titulo)}" target="_blank">
                 <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/${toLowCase(tarefa.titulo)}.gif" alt="${toPascalCase(tarefa.titulo)}">
             </a>
-            <div class="framed">
+            <div>
                 ${tarefa.descricao}
             </div>
         </p>
+
         <progress class="nes-progress is-success" value="50" max="100"></progress>
         <br>
-
-        <button type="button">-</button>
-        <button type="button">apagar</button>
-        <button type="button">+</button>
+        <div class="botoes">
+            <button type="button">-</button>
+            <button type="button">apagar</button>
+            <button type="button">+</button>
+        </div>
     </div>`
 
     const card = document.createElement("div");

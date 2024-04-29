@@ -35,13 +35,13 @@ document.querySelector("#botao-cadastrar").addEventListener("click", (e)=>{
     }
 
     // Se todas as condições estiverem corretas, o formulário pode ser enviado
-    alert("Formulário enviado com sucesso!");
     form.reset();
+    debugger;
 
         const tarefa = {
                     titulo: titulo,
-                    descricao: descricaoInput.value,
-                    pontos: pontosInput.value
+                    descricao: descricao,
+                    pontos: pontos
                 };
 
         salvar(tarefa);
