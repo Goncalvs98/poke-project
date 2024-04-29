@@ -47,6 +47,30 @@ document.querySelector("#botao-cadastrar").addEventListener("click", (e)=>{
         salvar(tarefa);
 });
 
+const tituloInput = document.getElementById("titulo");
+const sugestoes = document.getElementById("sugestoes");
+
+tituloInput.addEventListener("input", function() {
+    const textoDigitado = this.value.trim().toLowerCase();
+    const sugestoesFiltradas = pokemonList.filter(pokemon => pokemon.toLowerCase().startsWith(textoDigitado));
+    
+    // Limpa as sugestões anteriores
+    sugestoes.innerHTML = "";
+
+    // Adiciona as novas sugestões
+    sugestoesFiltradas.forEach(sugestao => {
+        const sugestaoElemento = document.createElement("div");
+        sugestaoElemento.textContent = sugestao;
+        sugestaoElemento.classList.add("sugestao");
+        sugestaoElemento.addEventListener("click", function() {
+            tituloInput.value = sugestao;
+            sugestoes.innerHTML = ""; // Limpa as sugestões após escolher uma
+        });
+        sugestoes.appendChild(sugestaoElemento);
+    });
+});
+
+
 // Restante do código...
 function toPascalCase(str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
