@@ -71,3 +71,15 @@ button{
     margin-top: 1px;
 }
 
+.apagando{
+    animation: fadeout 2s;
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

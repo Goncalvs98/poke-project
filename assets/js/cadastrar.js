@@ -36,9 +36,9 @@ document.querySelector("#botao-cadastrar").addEventListener("click", (e)=>{
 
     // Se todas as condições estiverem corretas, o formulário pode ser enviado
     form.reset();
-    debugger;
 
         const tarefa = {
+                    id: "id" + new Date().getTime(),
                     titulo: titulo,
                     descricao: descricao,
                     pontos: pontos

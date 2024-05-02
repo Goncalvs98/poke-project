@@ -43,12 +43,13 @@ function card(tarefa){
         <br>
         <div class="botoes">
             <button type="button">-</button>
-            <button type="button">apagar</button>
+            <button onclick="apagar('${tarefa.id}')" type="button">apagar</button>
             <button type="button">+</button>
         </div>
     </div>`
 
     const card = document.createElement("div");
+    card.id = tarefa.id;
     card.innerHTML = content;
 
     document.querySelector("#lista-de-tarefas").appendChild(card);
