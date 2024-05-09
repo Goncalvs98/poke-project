@@ -4,7 +4,6 @@ function apagar(id){
     document.querySelector('#'+id).addEventListener("animationend", ()=>
         document.querySelector('#'+id).remove()
     );
-    //document.querySelector('#'+id).remove();
 
     const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
     const tarefasAtualizadas = tarefas.filter((t)=> t.id !== id);

@@ -41,7 +41,8 @@ document.querySelector("#botao-cadastrar").addEventListener("click", (e)=>{
                     id: "id" + new Date().getTime(),
                     titulo: titulo,
                     descricao: descricao,
-                    pontos: pontos
+                    pontos: pontos,
+                    status: 0
                 };
 
         salvar(tarefa);

@@ -17,13 +17,6 @@ function toLowCase(str) {
     }).replace(/\. /g, "-").replace(/'\s/g, "").replace(/'/g, '');
 }
 
-// Exemplo de uso:
-console.log(toLowCase("Esta é uma Frase. Com 'Acentos' e. Pontuações.'")); // Output: "esta-e-uma-frase-com-acents-e-pontuacoes"
-console.log(toLowCase("Farfetch'd")); // Output: "farfetch'd"
-console.log(toLowCase("Farfetch'd GIF")); // Output: "farfetch'd-gif"
-
-
-
 function card(tarefa){
     const content = `
     <div class="framed">
@@ -39,12 +32,12 @@ function card(tarefa){
             </div>
         </p>
 
-        <progress class="nes-progress is-success" value="50" max="100"></progress>
+        <progress class="nes-progress is-success" value="${tarefa.status}" max="100"></progress>
         <br>
         <div class="botoes">
-            <button type="button">-</button>
+            <button onclick="dec('${tarefa.id}')" type="button">-</button>
             <button onclick="apagar('${tarefa.id}')" type="button">apagar</button>
-            <button type="button">+</button>
+            <button onclick="inc('${tarefa.id}')" type="button">+</button>
         </div>
     </div>`
 
